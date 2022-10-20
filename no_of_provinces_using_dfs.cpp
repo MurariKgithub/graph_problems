@@ -1,3 +1,4 @@
+// No of provinces by dfs travelsel 
 #include<bits/stdc++.h>
 using namespace std;
 void dfs(vector<int> &vis,unordered_map<int,list<int>> mp1,int node){
@@ -26,9 +27,11 @@ int func(int arr[][2],int n,int m){
     for(int i = 0;i<vis.size();i++){
         if(vis[i]!=1 && mp1.find(i)!=mp1.end()){
             count++;
+            cout<<i<<endl;
             dfs(vis,mp1,i);
         }
     }
+    // cout<<count;
     return count;
 }
 int main(){
