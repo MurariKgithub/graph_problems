@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-void dfs(int arr[][4],vector<vector<int>> &vis,int row,int col,int m,int n){
+void dfs(int arr[][8],vector<vector<int>> &vis,int row,int col,int m,int n){
     if(row<0 || col<0 ||row>=m||col>=n||vis[row][col]==1||arr[row][col]==0){
         return;
     }
@@ -15,7 +15,7 @@ void dfs(int arr[][4],vector<vector<int>> &vis,int row,int col,int m,int n){
     dfs(arr,vis,row,col-1,m,n);
     dfs(arr,vis,row,col+1,m,n);
 }
-int func(int arr[][4],int m,int n){
+int func(int arr[][8],int m,int n){
     vector<vector<int>> vis(m,vector<int>(n,0));
     // for(int i = 0;i<4;i++){
     //     for(int j = 0;j<4;j++){
@@ -27,6 +27,7 @@ int func(int arr[][4],int m,int n){
         for(int j= 0;j<n ;j++){
             if(vis[i][j]==0 and arr[i][j]==1){
                 count++;
+                cout<<i<<" "<<j<<endl;
                 dfs(arr,vis,i,j,m,n);
             }
         }
@@ -34,6 +35,11 @@ int func(int arr[][4],int m,int n){
     cout<<count;
 }
 int main(){
-    int arr[4][4] = {{0,1,1,0},{0,1,1,0},{0,1,0,1},{1,0,1,0}};
-    func(arr,4,4);
+    int arr[5][8] = {{0, 0, 0, 0, 0, 0, 0, 1}, 
+                     {0, 1, 1, 1, 1, 0, 0, 1}, 
+                     {0, 1, 0, 1, 0, 0, 0, 1}, 
+                     {0, 1, 1, 1, 1, 0, 1, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 1}} ;
+    func(arr,5,8);
+    cout<<"hello maji radha";
 }
