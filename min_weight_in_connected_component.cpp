@@ -25,7 +25,7 @@ vector<vector<int>> components(int n, int m, vector<vector<int>> &edges)
     vector<int>vis(n+1,0);
     vector<vector<int>>ans;
     for(int i=1;i<=n;i++){
-        if(!vis[i] && out[i]==1 && in[i]!=1){
+        if(!vis[i] && out[i]==1 && in[i]==0){
            int s=i;
             int e;
             int val=1e9+7;
